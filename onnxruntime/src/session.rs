@@ -353,6 +353,7 @@ impl Output {
         self.dimensions.iter().map(|d| d.map(|d2| d2 as usize))
     }
 }
+unsafe impl<'a> Send for Session<'a> {}
 
 impl<'a> Drop for Session<'a> {
     #[tracing::instrument]
